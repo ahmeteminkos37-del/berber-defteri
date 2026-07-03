@@ -1,0 +1,15 @@
+{
+  "name": "Berber Defteri",
+  "short_name": "Berber Defteri",
+  "description": "Berberler için randevu defteri — müşterin linkten seçer, randevu paneline düşer.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f4ee",
+  "theme_color": "#1a2f5a",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

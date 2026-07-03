@@ -5,7 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Berber — Randevu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Righteous&family=Libre+Baskerville:wght@400;700&family=Comfortaa:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Righteous&family=Libre+Baskerville:wght@400;700&family=Fraunces:wght@600;700;900&family=Comfortaa:wght@500;700&family=DM+Serif+Display&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#1a2f5a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Berber Defteri">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   :root{
@@ -20,7 +25,9 @@
   body.st-ocean{--font:'Poppins',sans-serif;--bg:#f0f9ff;--ink:#15323f;--muted:#7a98ab;--line:#dbeef7;--card:#fff;--green:#0ea5e9;--green2:#0284c7;--blue:#0ea5e9;--icbg:#e0f2fe;--navy:#0284c7;--navyLite:#38bdf8;--radius:18px;--r2:14px;--btn-radius:14px;--ic-radius:12px;--card-sh:0 2px 0 #dbeef7,0 7px 16px rgba(14,165,233,.1);--card-bd:1px solid #dbeef7;--btn-bg:linear-gradient(180deg,#22d3ee,#06b6d4);--btn-fg:#fff;--btn-sh:0 5px 0 #0e7490,0 11px 20px rgba(6,182,212,.3)}
   body.st-retro{--font:'Inter',sans-serif;--font-head:'Righteous',cursive;--bg:#fdf0d5;--ink:#3a2f1a;--muted:#8a7a5c;--line:#e3d5b0;--card:#fff;--green:#ff6b35;--green2:#e85a2a;--blue:#004e64;--icbg:#ffe3cc;--navy:#004e64;--navyLite:#3a7d8c;--radius:10px;--r2:8px;--btn-radius:8px;--ic-radius:8px;--card-sh:0 3px 0 #004e64;--card-bd:2px solid #004e64;--btn-bg:#ff6b35;--btn-fg:#fff;--btn-sh:0 4px 0 #004e64}
   body.st-asil{--font:'Inter',sans-serif;--font-head:'Libre Baskerville',serif;--bg:#fbfaf7;--ink:#2a2a30;--muted:#8a8270;--line:#e6ddc8;--card:#fff;--green:#1a2a4f;--green2:#13203c;--blue:#1a2a4f;--icbg:#eef0f5;--navy:#1a2a4f;--navyLite:#3a4a6f;--radius:6px;--r2:5px;--btn-radius:4px;--ic-radius:6px;--card-sh:0 2px 10px rgba(26,42,79,.08);--card-bd:1px solid #e6ddc8;--btn-bg:#1a2a4f;--btn-fg:#f0e6cc;--btn-sh:none}
-  body.st-bulut{--font:'Comfortaa',cursive;--font-head:'Comfortaa',cursive;--bg:#e7f5ff;--ink:#1a3a5c;--muted:#6a8fb0;--line:#c5e0f5;--card:#fff;--green:#4dabf7;--green2:#339af0;--blue:#4dabf7;--icbg:#d5ebfb;--navy:#1971c2;--navyLite:#4dabf7;--radius:16px;--r2:13px;--btn-radius:16px;--ic-radius:14px;--card-sh:0 4px 16px rgba(77,171,247,.15);--card-bd:1px solid #c5e0f5;--btn-bg:#4dabf7;--btn-fg:#fff;--btn-sh:none}
+  body.st-bulut{--font:'Manrope',sans-serif;--font-head:'DM Serif Display',Georgia,serif;--bg:#f3eee1;--ink:#202b23;--muted:#7d7460;--line:#e4d9bd;--card:#fffdf6;--green:#0f6b4e;--green2:#0b5740;--blue:#8a6a1c;--icbg:#e9efe6;--navy:#123328;--navyLite:#2f5c48;--radius:18px;--r2:14px;--btn-radius:14px;--ic-radius:12px;--card-sh:0 12px 34px rgba(31,42,26,.10);--card-bd:1px solid #e6dcc2;--btn-bg:linear-gradient(135deg,#17402f,#0d291e);--btn-fg:#f4eeda;--btn-sh:0 10px 24px rgba(18,51,40,.28)}
+  body.st-bulut .lbl{color:#8f7326}
+  body.st-bulut .btn-primary{letter-spacing:.02em}
   body.st-sade{--font:'Inter',sans-serif;--font-head:'Space Grotesk',sans-serif;--bg:#ffffff;--ink:#18181b;--muted:#9ca3af;--line:#ececec;--card:#fff;--green:#18181b;--green2:#000;--blue:#18181b;--icbg:#f4f4f5;--navy:#18181b;--navyLite:#3f3f46;--radius:12px;--r2:9px;--btn-radius:9px;--ic-radius:8px;--card-sh:0 1px 2px rgba(0,0,0,.04);--card-bd:1px solid #ececec;--btn-bg:#111;--btn-fg:#fff;--btn-sh:none}
 
   .wrap{max-width:560px;margin:0 auto;padding:0 18px 64px}
@@ -36,9 +43,9 @@
   .topbtn:active{background:var(--bg)}
 
   .head{text-align:center;padding:30px 0 6px}
-  .logo{width:64px;height:64px;border-radius:18px;background:var(--navy);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:var(--shadow)}
-  .logo svg{width:31px;height:31px;stroke:#fff;fill:none;stroke-width:1.7}
-  .head h1{font-size:1.7rem;font-weight:800;letter-spacing:-.01em;font-family:var(--font-head)}
+  .logo{width:66px;height:66px;border-radius:20px;background:linear-gradient(135deg,#1a2f5a,#2e5490);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 8px 22px rgba(26,47,90,.35)}
+  .logo svg{width:38px;height:38px}
+  .head h1{font-size:1.8rem;font-weight:900;letter-spacing:-.02em;font-family:'Fraunces',Georgia,serif}
   .head .sub{color:var(--muted);margin-top:8px;font-size:.95rem}
 
   .card{background:var(--card);border:var(--card-bd);border-radius:var(--radius);padding:18px;box-shadow:var(--card-sh)}
@@ -218,14 +225,14 @@ body.modal-open{overflow:hidden}
 <!-- KARŞILAMA -->
 <div id="view-welcome" class="view wrap">
   <div class="head" style="padding-top:38px">
-    <div class="logo"><svg viewBox="0 0 24 24"><circle cx="6" cy="6.5" r="2.2"/><circle cx="6" cy="17.5" r="2.2"/><path d="M8 7.6 L20 16.5 M8 16.4 L20 7.5"/></svg></div>
-    <h1>Berber Randevu</h1>
-    <p class="sub">Dükkânın için saniyeler içinde online randevu sayfası oluştur. Müşterilerin QR veya linkten sıra alsın, randevular WhatsApp'ına düşsün.</p>
+    <div class="logo"><svg viewBox="0 0 48 48" fill="none"><path d="M24 15c-4-2.8-11-2.8-16-1v22c5-1.8 12-1.8 16 1 4-2.8 11-2.8 16-1V14c-5-1.8-12-1.8-16 1z" fill="#fff"/><path d="M24 15v22" stroke="#e0b84c" stroke-width="1.6"/><g stroke="#cdd8ec" stroke-width="1" stroke-linecap="round" opacity=".9"><path d="M11 21l9-1.5M11 26l9-1.5M28 19.5l9 1.5M28 24.5l9 1.5"/></g><g stroke="#e0b84c" stroke-width="2.3" stroke-linecap="round"><path d="M17 6l8 9M29 6l-8 9"/></g><circle cx="16.5" cy="5.5" r="2.4" fill="#e0b84c"/><circle cx="29.5" cy="5.5" r="2.4" fill="#e0b84c"/></svg></div>
+    <h1>Berber Defteri</h1>
+    <p class="sub">Dükkânın için saniyeler içinde online randevu sayfası oluştur. Müşterilerin QR veya linkten sıra alsın, randevular panelinize düşsün.</p>
   </div>
   <div class="card steps">
-    <div class="step"><span class="num">1</span><div><b>Dükkânını aç</b><p>Adın, çalışma saatlerin ve WhatsApp numaran.</p></div></div>
+    <div class="step"><span class="num">1</span><div><b>Dükkânını aç</b><p>Adın, dükkân adın ve bilgilerin.</p></div></div>
     <div class="step"><span class="num">2</span><div><b>QR & linkini paylaş</b><p>Dükkâna as, sosyal medyada paylaş.</p></div></div>
-    <div class="step"><span class="num">3</span><div><b>Randevular gelsin</b><p>Müşteri linkten seçer, sana WhatsApp'tan düşer.</p></div></div>
+    <div class="step"><span class="num">3</span><div><b>Randevular gelsin</b><p>Müşteri linkten seçer, randevu panelinize düşer.</p></div></div>
   </div>
   <button id="goOpen" class="btn btn-primary mt">Dükkânını Aç</button>
   <button id="goLogin" class="btn btn-ghost mt">Zaten Dükkânım Var — Giriş Yap</button>
@@ -233,22 +240,24 @@ body.modal-open{overflow:hidden}
 
 <!-- DÜKKAN AÇ -->
 <div id="view-open" class="view wrap gt">
-  <div class="head"><div class="logo"><svg viewBox="0 0 24 24"><circle cx="6" cy="6.5" r="2.2"/><circle cx="6" cy="17.5" r="2.2"/><path d="M8 7.6 L20 16.5 M8 16.4 L20 7.5"/></svg></div><h1>Dükkânını Aç</h1></div>
+  <div class="head"><div class="logo"><svg viewBox="0 0 48 48" fill="none"><path d="M24 15c-4-2.8-11-2.8-16-1v22c5-1.8 12-1.8 16 1 4-2.8 11-2.8 16-1V14c-5-1.8-12-1.8-16 1z" fill="#fff"/><path d="M24 15v22" stroke="#e0b84c" stroke-width="1.6"/><g stroke="#cdd8ec" stroke-width="1" stroke-linecap="round" opacity=".9"><path d="M11 21l9-1.5M11 26l9-1.5M28 19.5l9 1.5M28 24.5l9 1.5"/></g><g stroke="#e0b84c" stroke-width="2.3" stroke-linecap="round"><path d="M17 6l8 9M29 6l-8 9"/></g><circle cx="16.5" cy="5.5" r="2.4" fill="#e0b84c"/><circle cx="29.5" cy="5.5" r="2.4" fill="#e0b84c"/></svg></div><h1>Dükkânını Aç</h1></div>
   <div class="card stack mt">
     <div><span class="lbl">Dükkân Adı</span><input id="oName" class="field" placeholder="Örn: İzmir BarberShop" /></div>
-    <div><span class="lbl">Kullanıcı Adı (giriş için)</span><input id="oUser" class="field" autocapitalize="off" placeholder="örn: izmir-barber" /><p class="note" style="text-align:left;margin-top:6px">Panele bu kullanıcı adı + şifre ile gireceksin. Harf, rakam ve tire.</p></div>
+    <div><span class="lbl">Kullanıcı Adı (giriş için)</span><input id="oUser" class="field" autocapitalize="off" oninput="this.value=this.value.toLowerCase().replace(/[^a-z0-9-]/g,'')" placeholder="örn: izmir-barber" /><p class="note" style="text-align:left;margin-top:6px">Panele bu kullanıcı adı + şifre ile gireceksin. Harf, rakam ve tire.</p></div>
     <div><span class="lbl">Panel Şifresi</span><input id="oPw" class="field" placeholder="Bir şifre belirle" /></div>
-    <div class="grid2">
+    <div class="mt"><span class="lbl">Güvenlik Sorusu <span style="font-weight:400;color:var(--muted)">(şifreni unutursan lazım olur)</span></span><select id="oSecQ" class="field"><option>İlk çırağının / ustanın adı?</option><option>Doğduğun şehir?</option><option>İlk evcil hayvanının adı?</option><option>Annenin kızlık soyadı?</option><option>İlkokul öğretmeninin adı?</option><option>En sevdiğin takım?</option></select></div>
+    <div><span class="lbl">Cevabın</span><input id="oSecA" class="field" placeholder="Bu cevabı sakın unutma" autocapitalize="off" /></div>
+    <div class="grid2" style="display:none">
       <div><span class="lbl">Açılış</span><input id="oOpen" type="time" class="field" value="09:00" /></div>
       <div><span class="lbl">Kapanış</span><input id="oClose" type="time" class="field" value="19:00" /></div>
     </div>
   </div>
-  <div class="card stack mt">
+  <div class="card stack mt" style="display:none">
     <span class="lbl">Fiyatlar (tüm dükkân için ortak)</span>
     <div class="grid2"><div><span class="lbl">Saç (₺)</span><input id="oPriceSac" class="field" type="number" inputmode="numeric" value="0"/></div><div><span class="lbl">Sakal (₺)</span><input id="oPriceSakal" class="field" type="number" inputmode="numeric" value="0"/></div></div>
     <div><span class="lbl">İkisi birlikte indirimi (₺)</span><input id="oPriceCombo" class="field" type="number" inputmode="numeric" value="0"/><p class="note" style="text-align:left;margin-top:6px">Müşteri saç + sakalı birlikte seçerse bu kadar indirim uygulanır. İstemiyorsan 0 bırak.</p></div>
   </div>
-  <div class="mt"><span class="lbl">Çalışanlar / Berberler</span><p class="note" style="text-align:left;margin:2px 0 10px">Her çalışan için ad, WhatsApp, süreler, çalışmadığı günler ve mola ayrı. Müşteri randevu alınca o çalışanın WhatsApp'ına bildirim gider. Tek kişiysen sadece kendini ekle.</p><div id="oStaff" class="stack"></div><button id="oAddStaff" class="btn btn-ghost mt" style="padding:11px">+ Çalışan Ekle</button></div>
+  <div class="mt" style="display:none"><span class="lbl">Çalışanlar</span><div id="oStaff" class="stack"></div><button id="oAddStaff" class="btn btn-ghost mt">+ Çalışan Ekle</button></div>
   <p id="oErr" class="err hidden"></p>
   <div class="mt"><span class="lbl">Şehir & İlçe</span><div class="grid2" style="margin-top:2px"><select id="oCity" class="field"></select><select id="oDist" class="field"></select></div></div>
   <div class="mt"><span class="lbl">Abonelik Paketi</span><p class="note" style="text-align:left;margin:2px 0 8px">Dükkânını açmak için bir paket seç. İndirim kodun varsa gir, fiyat anında güncellenir.</p>
@@ -257,13 +266,21 @@ body.modal-open{overflow:hidden}
   </div>
   <button id="oCreate" class="btn btn-primary mt">Aboneliği Başlat ve Dükkânı Aç</button>
   <p class="note">Zaten hesabın var mı? <button id="oToLogin" class="link">Giriş Yap</button></p>
+  <div id="oPromo" class="hidden" style="margin-top:20px">
+    <span class="lbl">📹 Nasıl çalışır? (1 dakikada izle)</span>
+    <div style="position:relative;padding-bottom:56.25%;height:0;border-radius:14px;overflow:hidden;margin-top:8px;box-shadow:var(--shadow);background:#000">
+      <iframe id="oPromoFrame" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="encrypted-media;fullscreen" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p id="oPromoDesc" class="note" style="text-align:left;margin-top:8px"></p>
+    <a id="oPromoLink" class="link" target="_blank" rel="noopener">YouTube\'da aç ↗</a>
+  </div>
 </div>
 
 <!-- GİRİŞ -->
 <div id="view-login" class="view wrap gt">
-  <div class="head"><div class="logo"><svg viewBox="0 0 24 24"><circle cx="6" cy="6.5" r="2.2"/><circle cx="6" cy="17.5" r="2.2"/><path d="M8 7.6 L20 16.5 M8 16.4 L20 7.5"/></svg></div><h1>Giriş Yap</h1><p class="sub">Dükkânının kullanıcı adı ve panel şifresiyle gir.</p></div>
+  <div class="head"><div class="logo"><svg viewBox="0 0 48 48" fill="none"><path d="M24 15c-4-2.8-11-2.8-16-1v22c5-1.8 12-1.8 16 1 4-2.8 11-2.8 16-1V14c-5-1.8-12-1.8-16 1z" fill="#fff"/><path d="M24 15v22" stroke="#e0b84c" stroke-width="1.6"/><g stroke="#cdd8ec" stroke-width="1" stroke-linecap="round" opacity=".9"><path d="M11 21l9-1.5M11 26l9-1.5M28 19.5l9 1.5M28 24.5l9 1.5"/></g><g stroke="#e0b84c" stroke-width="2.3" stroke-linecap="round"><path d="M17 6l8 9M29 6l-8 9"/></g><circle cx="16.5" cy="5.5" r="2.4" fill="#e0b84c"/><circle cx="29.5" cy="5.5" r="2.4" fill="#e0b84c"/></svg></div><h1>Giriş Yap</h1><p class="sub">Dükkânının kullanıcı adı ve panel şifresiyle gir.</p></div>
   <div class="card stack mt">
-    <div><span class="lbl">Kullanıcı Adı</span><input id="lgUser" class="field" autocapitalize="off" placeholder="örn: izmir-barber" /></div>
+    <div><span class="lbl">Kullanıcı Adı</span><input id="lgUser" class="field" autocapitalize="off" oninput="this.value=this.value.toLowerCase().replace(/[^a-z0-9-]/g,'')" placeholder="örn: izmir-barber" /></div>
     <div><span class="lbl">Panel Şifresi</span><input id="lgPw" type="password" class="field" /></div>
   </div>
   <p id="lgErr" class="err hidden"></p>
@@ -320,6 +337,7 @@ body.modal-open{overflow:hidden}
     <span class="lbl">Fiyatlar (tüm dükkân için ortak)</span>
     <div class="grid2"><div><span class="lbl">Saç (₺)</span><input id="sPriceSac" class="field" type="number" inputmode="numeric"/></div><div><span class="lbl">Sakal (₺)</span><input id="sPriceSakal" class="field" type="number" inputmode="numeric"/></div></div>
     <div><span class="lbl">İkisi birlikte indirimi (₺)</span><input id="sPriceCombo" class="field" type="number" inputmode="numeric"/></div>
+    <div class="mt"><span class="lbl">⭐ Google Değerlendirme Linki (isteğe bağlı)</span><input id="sGoogle" class="field" type="url" placeholder="https://g.page/r/..."/><p class="note" style="text-align:left;margin:4px 0 0">Müşteri randevu alınca bu sayfaya yönlenir (Google yorum sayfanız). Boş bırakırsanız yönlendirme olmaz.</p></div>
   </div>
   <div class="mt"><span class="lbl">Çalışanlar / Berberler</span><p class="note" style="text-align:left;margin:2px 0 10px">Her çalışanın WhatsApp'ı, süreleri, çalışmadığı günleri ve molası ayrı.</p><div id="sStaff" class="stack"></div><button id="sAddStaff" class="btn btn-ghost mt" style="padding:11px">+ Çalışan Ekle</button></div>
   <p id="sMsg" class="hidden"></p>
@@ -341,7 +359,7 @@ body.modal-open{overflow:hidden}
 <!-- MÜŞTERİ -->
 <div id="view-customer" class="view wrap gt">
   <div class="head">
-    <div class="logo"><svg viewBox="0 0 24 24"><circle cx="6" cy="6.5" r="2.2"/><circle cx="6" cy="17.5" r="2.2"/><path d="M8 7.6 L20 16.5 M8 16.4 L20 7.5"/></svg></div>
+    <div class="logo"><svg viewBox="0 0 48 48" fill="none"><path d="M24 15c-4-2.8-11-2.8-16-1v22c5-1.8 12-1.8 16 1 4-2.8 11-2.8 16-1V14c-5-1.8-12-1.8-16 1z" fill="#fff"/><path d="M24 15v22" stroke="#e0b84c" stroke-width="1.6"/><g stroke="#cdd8ec" stroke-width="1" stroke-linecap="round" opacity=".9"><path d="M11 21l9-1.5M11 26l9-1.5M28 19.5l9 1.5M28 24.5l9 1.5"/></g><g stroke="#e0b84c" stroke-width="2.3" stroke-linecap="round"><path d="M17 6l8 9M29 6l-8 9"/></g><circle cx="16.5" cy="5.5" r="2.4" fill="#e0b84c"/><circle cx="29.5" cy="5.5" r="2.4" fill="#e0b84c"/></svg></div>
     <h1 id="cShopName">Berber</h1>
     <p class="sub">Tarih ve saatini seç, randevunu al.</p>
   </div>
@@ -366,7 +384,7 @@ body.modal-open{overflow:hidden}
     </div>
     <p id="cErr" class="err hidden"></p>
     <button id="cSubmit" class="btn btn-primary mt"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 0 1 12 4z"/></svg> Randevuyu Tamamla</button>
-    <p class="note">Onaylayınca berberin WhatsApp'ına bilgileriniz iletilir.</p>
+    <p class="note">Randevunuz oluşturulacak, berber panelinden görecek.</p>
     <div style="margin-top:18px;border-top:1px solid var(--line);padding-top:14px">
       <button type="button" id="cCancelToggle" class="link" style="font-size:.9rem">Randevunu iptal mi edeceksin?</button>
       <div id="cCancelBox" class="hidden" style="margin-top:10px">
@@ -389,11 +407,14 @@ body.modal-open{overflow:hidden}
     <div class="card mt"><span class="lbl">Şifre</span><input id="plPw" type="password" class="field" /><p id="plErr" class="err hidden"></p><button id="plBtn" class="btn btn-primary mt">Giriş</button></div>
   </div>
   <div id="plPanel" class="hidden">
+  <div id="plPwWarn" class="hidden" style="background:#7a1f1f;color:#ffd9d9;border-radius:12px;padding:12px 14px;font-weight:700;margin-bottom:12px">⚠️ Yönetici şifren hâlâ varsayılan (12345). Aşağıdaki şifre alanından hemen değiştir — yayında böyle kalmamalı!</div>
     <h1 class="pagetitle">Admin Panel</h1>
     <div class="card stack mt">
       <div><span class="lbl">Abonelik Paketleri</span><p class="note" style="text-align:left;margin:2px 0 8px">Berberlerin satın alacağı paketler. 1 aylık fiyat referans alınır; uzun paketleri daha ucuza koyarsan indirim otomatik gösterilir.</p><div id="plPkgs" class="stack"></div><button id="plAddPkg" class="btn btn-ghost mt" style="padding:10px">+ Paket Ekle</button><button id="plSavePkg" class="btn btn-primary mt" style="padding:12px">Paketleri Kaydet</button><p id="plPkgMsg" class="ok hidden"></p></div>
       <div><span class="lbl">Admin Şifresi</span><div class="inrow"><input id="plNewPw" type="password" class="field" placeholder="Yeni şifre" /><button id="plSavePw" class="btn btn-primary">Kaydet</button></div><p id="plPwMsg" class="ok hidden"></p></div>
       <div><span class="lbl">Görünüm / Tasarım Stili</span><p class="note" style="text-align:left;margin:2px 0 8px">6 hazır tasarım stili — birine dokun, <b>tüm uygulama anında</b> o stile geçer (yazı tipi, renk, gölge, butonlar dahil). "Kaydet" ile kalıcı olur.</p><div id="plStyles" class="stgrid"></div><button id="plSaveStyle" class="btn btn-primary mt" style="padding:12px">Kaydet ve Uygula</button><p id="plStyleMsg" class="ok hidden"></p></div>
+      <div><span class="lbl">📹 Tanıtım Videosu (dükkan aç ekranında görünür)</span><p class="note" style="text-align:left;margin:2px 0 8px">YouTube linkini yapıştır (liste dışı önerilir). Boş bırakırsan video hiç görünmez.</p><input id="plVideo" class="field" placeholder="https://youtu.be/..." style="margin-bottom:8px"/><input id="plVideoDesc" class="field" placeholder="Kısa açıklama (isteğe bağlı)"/><button id="plSaveVideo" class="btn btn-primary mt" style="padding:12px">Videoyu Kaydet</button><p id="plVideoMsg" class="ok hidden"></p></div>
+      <div><span class="lbl">💾 Yedekleme</span><p class="note" style="text-align:left;margin:2px 0 8px">Tüm dükkân, randevu ve platform verilerini tek dosyada indirir. Ayda bir indirip saklamanı öneririm.</p><button id="plExport" class="btn btn-ghost" style="padding:12px">💾 Yedeği İndir</button></div>
       <div><span class="lbl">Konuşmacılar (Referans Temsilcileri)</span><p class="note" style="text-align:left;margin:2px 0 8px">Sana müşteri (berber) kazandıran temsilciler. Her birine isim, telefon, bir <b>indirim kodu</b> ve <b>her paket için indirim</b> ver. Berber abonelik alırken o kodu girerse, indirimli fiyattan öder ve o temsilciye "müşteri getirdi" olarak sayılır.</p><div id="plRefs" class="stack"></div><button id="plAddRef" class="btn btn-ghost mt" style="padding:10px">+ Konuşmacı Ekle</button><button id="plSaveRefs" class="btn btn-primary mt" style="padding:12px">Konuşmacıları Kaydet</button><p id="plRefMsg" class="ok hidden"></p></div>
       <div><span class="lbl">Konuşmacı Başvuruları<span id="plAppDot"></span></span><p class="note" style="text-align:left;margin:2px 0 8px">Bir konuşmacı ilçesini tamamlayıp başvurunca burada çıkar. Bilgilerini ve getirdiği müşteriyi gör, onayla → yeni ilçe seçebilir.</p><div id="plApps" class="stack"></div></div>
       <div id="plSecCredit"><span class="lbl">Saç Deneme — Kredi Paketleri</span><p class="note" style="text-align:left;margin:2px 0 8px">Berberlerin saç deneme için alacağı kredi paketleri. 1 kredi fiyatı referans; çok alımda indirim otomatik gösterilir.</p><div id="plCredits" class="stack"></div><button id="plAddCredit" class="btn btn-ghost mt" style="padding:10px">+ Kredi Paketi</button><button id="plSaveCredit" class="btn btn-primary mt" style="padding:12px">Kredi Paketlerini Kaydet</button><p id="plCreditMsg" class="ok hidden"></p></div>
@@ -453,12 +474,12 @@ body.modal-open{overflow:hidden}
 
 <div id="resetModal" class="modal"><div class="mpanel" style="max-width:400px">
   <h4>Şifremi Unuttum</h4>
-  <p class="note" style="text-align:left;margin-top:0">Kayıtlı çalışan WhatsApp numarana doğrulama kodu göndereceğiz.</p>
-  <div><span class="lbl">Kullanıcı Adı</span><input id="rsUser" class="field" autocapitalize="off" /></div>
-  <button id="rsSend" class="btn btn-ghost mt" style="padding:11px">Kod Gönder</button>
+  <p class="note" style="text-align:left;margin-top:0">Kullanıcı adını gir, güvenlik sorunu yanıtlayarak yeni şifre belirle.</p>
+  <div><span class="lbl">Kullanıcı Adı</span><input id="rsUser" class="field" autocapitalize="off" oninput="this.value=this.value.toLowerCase().replace(/[^a-z0-9-]/g,'')" /></div>
+  <button id="rsSend" class="btn btn-ghost mt" style="padding:11px">Soruyu Getir</button>
   <div id="rsStep2" class="hidden" style="margin-top:12px">
     <p id="rsInfo" class="note" style="text-align:left"></p>
-    <div><span class="lbl">Gelen Kod</span><input id="rsCode" class="field" type="tel" inputmode="numeric" maxlength="4" /></div>
+    <div><span class="lbl">Cevabın</span><input id="rsAnswer" class="field" autocapitalize="off" /></div>
     <div class="mt"><span class="lbl">Yeni Şifre</span><input id="rsNewPw" class="field" type="text" placeholder="Yeni şifren" /></div>
   </div>
   <p id="rsMsg" class="err hidden"></p>
@@ -781,25 +802,26 @@ $('goOpen').onclick=()=>{location.hash='#ac';};
 async function showOpen(){
   ['oName','oUser','oPw'].forEach(i=>$(i).value='');['oPriceSac','oPriceSakal','oPriceCombo'].forEach(i=>$(i).value='0');$('oOpen').value='09:00';$('oClose').value='19:00';$('oErr').classList.add('hidden');fillCity('oCity','oDist');openStaff=[blankStaff()];renderStaffList('oStaff',openStaff);
   openPkgSel=0;openDisc={};openCode='';if($('oCode'))$('oCode').value='';if($('oCodeMsg'))$('oCodeMsg').classList.add('hidden');if($('oPkgs'))$('oPkgs').innerHTML='<p class="note">Yükleniyor...</p>';
-  api('/api/config').then(c=>{openPkgs=c.packages||[];renderOpenPkgs();if($('oCouponBox'))$('oCouponBox').style.display=(c.couponEnabled!==false)?'':'none';}).catch(()=>{if($('oPkgs'))$('oPkgs').innerHTML='';});
+  api('/api/config').then(c=>{openPkgs=c.packages||[];renderOpenPkgs();if($('oCouponBox'))$('oCouponBox').style.display=(c.couponEnabled!==false)?'':'none';if(c.promoVideo)showPromo(c.promoVideo,c.promoDesc);}).catch(()=>{if($('oPkgs'))$('oPkgs').innerHTML='';});
   setView('open');topbar({title:'Dükkân Aç',back:''});
 }
 function clearFldErr(){document.querySelectorAll('.fld-err').forEach(e=>e.classList.remove('fld-err'));}
 function markFld(field){clearFldErr();const map={name:'oName',username:'oUser',password:'oPw',hours:'oOpen',staff:'oStaff',city:'oCity'};const el=map[field]&&$(map[field]);if(el){el.classList.add('fld-err');try{el.scrollIntoView({behavior:'smooth',block:'center'});}catch(_){}if(el.tagName==='INPUT'){try{el.focus({preventScroll:true});}catch(_){}}}}
 ['oName','oUser','oPw','oOpen','oClose','oCity','oDist'].forEach(function(id){const e=$(id);if(e)e.addEventListener('input',clearFldErr);});
 $('oCreate').onclick=async()=>{clearFldErr();
-  const name=$('oName').value.trim(),username=$('oUser').value.trim().toLowerCase(),pw=$('oPw').value.trim(),open=$('oOpen').value,close=$('oClose').value;
+  const name=$('oName').value.trim(),username=$('oUser').value.trim().toLowerCase(),pw=$('oPw').value.trim();
   const er=(m)=>flash('oErr',m,false);
   if(name.length<2)return er('Dükkân adı girin.');
   if(!/^[a-z0-9-]{3,20}$/.test(username))return er('Kullanıcı adı 3-20 karakter; harf, rakam veya tire.');
   if(pw.length<3)return er('Şifre en az 3 karakter.');
-  if(toMin(open)>=toMin(close))return er('Açılış kapanıştan önce olmalı.');
   const city=$('oCity').value,district=$('oDist').value;
   if(!city||!district)return er('Şehir ve ilçe seçin.');
-  const staff=cleanStaff(openStaff);if(!validStaff(staff,er))return;
+  const secQ=$('oSecQ').value,secA=$('oSecA').value.trim();
+  if(secA.length<2)return er('Güvenlik sorusunun cevabını girin.');
   $('oCreate').disabled=true;$('oCreate').textContent='İşleniyor...';
-  const prices={sac:Number($('oPriceSac').value)||0,sakal:Number($('oPriceSakal').value)||0,combo:Number($('oPriceCombo').value)||0};
-  try{const res=await api('/api/shops',{method:'POST',body:{name,username,password:pw,open,close,staff,prices,city,district}});
+  const staff=[{id:'s'+Date.now(),name:name,phone:'',offDays:[],breaks:[],sac:{dur:30},sakal:{dur:15}}];
+  const prices={sac:0,sakal:0,combo:0};
+  try{const res=await api('/api/shops',{method:'POST',body:{name,username,password:pw,open:'09:00',close:'19:00',staff,prices,city,district,secQ,secA}});
     if(res.payUrl){location.href=res.payUrl;return;}
     ownerToken=res.token;localStorage.setItem('ss_owner',ownerToken);
     const pk=openPkgs[openPkgSel];if(pk){try{const b=await api('/api/owner/buy',{method:'POST',auth:'owner',body:{months:pk.months,code:openCode}});if(b&&b.payUrl){location.href=b.payUrl;return;}}catch(e){}}
@@ -818,15 +840,15 @@ $('goLogin').onclick=()=>{location.hash='#giris';};
 $('oToLogin').onclick=()=>{location.hash='#giris';};
 $('lgToOpen').onclick=()=>{location.hash='#ac';};
 let resetToken='';
-$('lgForgot').onclick=()=>{resetToken='';$('rsUser').value=$('lgUser').value.trim();$('rsCode').value='';$('rsNewPw').value='';$('rsStep2').classList.add('hidden');$('rsDone').classList.add('hidden');$('rsMsg').classList.add('hidden');$('rsSend').classList.remove('hidden');$('rsSend').textContent='Kod Gönder';modal('resetModal',true);};
+$('lgForgot').onclick=()=>{$('rsUser').value=$('lgUser').value.trim();$('rsAnswer').value='';$('rsNewPw').value='';$('rsStep2').classList.add('hidden');$('rsDone').classList.add('hidden');$('rsMsg').classList.add('hidden');$('rsSend').classList.remove('hidden');$('rsSend').textContent='Soruyu Getir';modal('resetModal',true);};
 $('rsCancel').onclick=()=>modal('resetModal',false);
 $('rsSend').onclick=async()=>{const u=$('rsUser').value.trim().toLowerCase();if(u.length<3)return flash('rsMsg','Kullanıcı adını gir.',false);
-  $('rsSend').disabled=true;$('rsSend').textContent='Gönderiliyor...';
-  try{const r=await api('/api/reset/start',{method:'POST',body:{username:u}});resetToken=r.otpToken;$('rsStep2').classList.remove('hidden');$('rsDone').classList.remove('hidden');$('rsSend').textContent='Kodu Tekrar Gönder';$('rsInfo').textContent=(r.devCode?('Demo modu — kodun: '+r.devCode+'  ·  '):'')+'Kod '+r.maskedPhone+' numarasına gönderildi.';}catch(e){flash('rsMsg',e.message,false);$('rsSend').textContent='Kod Gönder';}
+  $('rsSend').disabled=true;$('rsSend').textContent='Getiriliyor...';
+  try{const r=await api('/api/reset/start',{method:'POST',body:{username:u}});$('rsStep2').classList.remove('hidden');$('rsDone').classList.remove('hidden');$('rsSend').classList.add('hidden');$('rsInfo').textContent='Güvenlik sorusu: '+r.question;}catch(e){flash('rsMsg',e.message,false);$('rsSend').textContent='Soruyu Getir';}
   $('rsSend').disabled=false;};
-$('rsDone').onclick=async()=>{const u=$('rsUser').value.trim().toLowerCase(),code=$('rsCode').value.trim(),pw=$('rsNewPw').value;
-  if(!code)return flash('rsMsg','Gelen kodu gir.',false);if(pw.length<3)return flash('rsMsg','Yeni şifre en az 3 karakter.',false);
-  try{await api('/api/reset/finish',{method:'POST',body:{username:u,otp:code,otpToken:resetToken,password:pw}});modal('resetModal',false);$('lgUser').value=u;$('lgPw').value='';flash('lgErr','Şifren yenilendi, şimdi giriş yapabilirsin.',true);}catch(e){flash('rsMsg',e.message,false);}};
+$('rsDone').onclick=async()=>{const u=$('rsUser').value.trim().toLowerCase(),ans=$('rsAnswer').value.trim(),pw=$('rsNewPw').value;
+  if(!ans)return flash('rsMsg','Cevabı gir.',false);if(pw.length<4)return flash('rsMsg','Yeni şifre en az 4 karakter.',false);
+  try{await api('/api/reset/finish',{method:'POST',body:{username:u,answer:ans,password:pw}});modal('resetModal',false);$('lgUser').value=u;$('lgPw').value='';flash('lgErr','Şifren yenilendi, şimdi giriş yapabilirsin.',true);}catch(e){flash('rsMsg',e.message,false);}};
 $('lgBtn').onclick=async()=>{const username=$('lgUser').value.trim().toLowerCase(),pw=$('lgPw').value;
   if(!username)return flash('lgErr','Kullanıcı adı girin.',false);
   if(!pw)return flash('lgErr','Şifre girin.',false);
@@ -880,8 +902,36 @@ $('statDetail').onclick=async()=>{$('statsBody').innerHTML='<p class="note">Yük
       html='<div class="statShop"><div class="statShop-h">🏪 TÜM DÜKKÂN</div>'+block(s,true)+'</div>';
       html+='<span class="lbl" style="display:block;margin:16px 0 0">Çalışan başına</span>'+ps.map(p=>`<div class="card" style="margin-top:8px"><div style="font-weight:800;color:var(--navy);margin-bottom:2px">${esc(p.name)}</div>${block(p)}</div>`).join('');
     }else{html='<span class="lbl">Tüm dükkân</span><div class="card" style="margin:6px 0">'+block(s)+'</div>';}
-    $('statsBody').innerHTML=html;
+    html+='<span class="lbl" style="display:block;margin:18px 0 6px">📈 Kazanç Grafiği</span><div id="stChartWrap"></div>';
+    $('statsBody').innerHTML=html;stData=s;stPeriod='d';stStaff='';stDraw();
   }catch(e){$('statsBody').innerHTML='<p class="err">İstatistik yüklenemedi.</p>';}};
+var stData=null,stPeriod='d',stStaff='';
+function stD(dt){return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');}
+function stShort(v){return v>=1000?(Math.round(v/100)/10+'').replace('.',',')+'b':String(v);}
+function stVal(r){if(!r)return{n:0,tl:0};if(!stStaff)return{n:r.n||0,tl:r.tl||0};var x=(r.s||{})[stStaff];return x?{n:x.n||0,tl:x.tl||0}:{n:0,tl:0};}
+function stBuckets(){var map={};(stData.series||[]).forEach(function(r){map[r.d]=r;});var out=[],now=new Date();var MON=['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Eki','Kas','Ara'];
+ if(stPeriod==='d'){for(var i=13;i>=0;i--){var dt=new Date(now.getFullYear(),now.getMonth(),now.getDate()-i);var v=stVal(map[stD(dt)]);out.push({l:dt.getDate()+'/'+(dt.getMonth()+1),n:v.n,tl:v.tl});}}
+ else if(stPeriod==='w'){var mon=new Date(now.getFullYear(),now.getMonth(),now.getDate()-((now.getDay()+6)%7));for(var w=7;w>=0;w--){var st=new Date(mon.getFullYear(),mon.getMonth(),mon.getDate()-7*w);var n=0,tl=0;for(var j=0;j<7;j++){var dd=new Date(st.getFullYear(),st.getMonth(),st.getDate()+j);var vv=stVal(map[stD(dd)]);n+=vv.n;tl+=vv.tl;}out.push({l:st.getDate()+'/'+(st.getMonth()+1),n:n,tl:tl});}}
+ else{for(var k=5;k>=0;k--){var md=new Date(now.getFullYear(),now.getMonth()-k,1);var ym=md.getFullYear()+'-'+String(md.getMonth()+1).padStart(2,'0');var n2=0,tl2=0;(stData.series||[]).forEach(function(r){if(r.d.slice(0,7)===ym){var v2=stVal(r);n2+=v2.n;tl2+=v2.tl;}});out.push({l:MON[md.getMonth()],n:n2,tl:tl2});}}
+ return out;}
+function stSvg(bk){var W=372,H=196,pt=20,pb=24,gap=6;var iw=W-8,bw=(iw-gap*(bk.length-1))/bk.length;var max=1;bk.forEach(function(b){if(b.tl>max)max=b.tl;});var ah=H-pt-pb;var s='<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;display:block">';
+ s+='<line x1="4" y1="'+(H-pb)+'" x2="'+(W-4)+'" y2="'+(H-pb)+'" style="stroke:var(--line);stroke-width:1"/>';
+ bk.forEach(function(b,i){var x=4+i*(bw+gap);var h=b.tl>0?Math.max(3,Math.round(ah*b.tl/max)):0;var y=H-pb-h;var cur=i===bk.length-1;
+  if(h>0)s+='<rect x="'+x.toFixed(1)+'" y="'+y+'" width="'+bw.toFixed(1)+'" height="'+h+'" rx="4" style="fill:var(--'+(cur?'green':'navyLite')+')"/>';
+  if(b.tl>0)s+='<text x="'+(x+bw/2).toFixed(1)+'" y="'+(y-4)+'" text-anchor="middle" style="font-size:8.5px;font-weight:700;fill:var(--muted)">'+stShort(b.tl)+'</text>';
+  s+='<text x="'+(x+bw/2).toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle" style="font-size:8.5px;fill:var(--muted)">'+b.l+'</text>';});
+ return s+'</svg>';}
+function stPill(a,v,txt,on){return '<button data-'+a+'="'+v+'" style="padding:7px 12px;border-radius:999px;border:1px solid '+(on?'var(--navy)':'var(--line)')+';background:'+(on?'var(--navy)':'var(--card)')+';color:'+(on?'#fff':'var(--ink)')+';font-weight:700;font-size:.8rem;font-family:var(--font)">'+txt+'</button>';}
+function stDraw(){var w=$('stChartWrap');if(!w||!stData)return;
+ var h='<div style="display:flex;gap:6px;flex-wrap:wrap">'+[['d','Günlük'],['w','Haftalık'],['m','Aylık']].map(function(t){return stPill('p',t[0],t[1],stPeriod===t[0]);}).join('')+'</div>';
+ var sl=stData.staffList||[];
+ if(sl.length>1){h+='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px">'+stPill('s','','Tümü',!stStaff)+sl.map(function(x){return stPill('s',x.id,esc(x.name),stStaff===x.id);}).join('')+'</div>';}
+ var bk=stBuckets();var tn=0,tt=0;bk.forEach(function(b){tn+=b.n;tt+=b.tl;});
+ h+='<div class="card" style="margin-top:10px;padding:12px 8px 6px">'+((tt>0||tn>0)?stSvg(bk):'<p class="note" style="margin:14px 6px">Henüz bu dönemde veri yok — randevular geldikçe grafik dolar. 📊</p>')+'</div>';
+ h+='<p class="note" style="text-align:left;margin:8px 2px 0">Seçili dönem: <b style="color:var(--ink)">'+tn+'</b> müşteri · <b style="color:var(--green)">'+fmtTL(tt)+'</b> <span style="opacity:.6;font-weight:400">(gelmeyen hariç)</span></p>';
+ w.innerHTML=h;
+ w.querySelectorAll('[data-p]').forEach(function(b){b.onclick=function(){stPeriod=b.dataset.p;stDraw();};});
+ w.querySelectorAll('[data-s]').forEach(function(b){b.onclick=function(){stStaff=b.dataset.s;stDraw();};});}
 $('statsClose').onclick=()=>modal('statsModal',false);
 $('cardAppt').onclick=()=>{location.hash='#randevular';};
 $('cardSettings').onclick=()=>{location.hash='#ayarlar';};
@@ -1037,7 +1087,7 @@ function renderStaffList(boxId,arr){
   box.innerHTML=arr.map((s,i)=>`<div class="card stack" data-i="${i}" style="margin-top:10px">
     <div style="display:flex;justify-content:space-between;align-items:center"><b>Çalışan ${i+1}</b>${arr.length>1?'<button class="mini m-del rm">Sil</button>':''}</div>
     <div><span class="lbl">Ad</span><input class="field nm" value="${esc(s.name)}" placeholder="Örn: Ahmet"/></div>
-    <div><span class="lbl">WhatsApp (randevu buraya düşer)</span><input class="field ph" type="tel" inputmode="numeric" value="${esc(s.phone||'')}" placeholder="05XX XXX XX XX"/></div>
+    <div><span class="lbl">WhatsApp / Telefon numarası</span><input class="field ph" type="tel" inputmode="numeric" value="${esc(s.phone||'')}" placeholder="05XX XXX XX XX"/></div>
     <div class="note" style="text-align:left;background:#f6f8fb;border-radius:8px;padding:8px 11px;font-size:.82rem;margin:0">Randevu süreleri sabittir: saç <b>30 dk</b>, sakal <b>15 dk</b> (ikisi birlikte 45 dk).</div>
     <div><span class="lbl">Çalışmadığı Günler</span><div class="daysel dd">${DAYS.map(d=>`<button type="button" class="day${(s.offDays||[]).includes(d.i)?' off':''}" data-d="${d.i}">${d.l}</button>`).join('')}</div></div>
     <div><span class="lbl">Mola</span><div class="bl stack">${(s.breaks||[]).map((b,j)=>`<div class="brk" data-j="${j}"><input class="field bs" type="time" value="${b.start}"/><span>–</span><input class="field be" type="time" value="${b.end}"/><button class="mini m-del bd">Sil</button></div>`).join('')}</div><button type="button" class="btn btn-ghost ab" style="padding:9px;margin-top:8px">+ Mola Ekle</button></div>
@@ -1059,14 +1109,14 @@ function fillSet(){$('sName').value=currentOwner.name;$('sUser').value=currentOw
   const pr=currentOwner.prices||{};$('sPriceSac').value=pr.sac||0;$('sPriceSakal').value=pr.sakal||0;$('sPriceCombo').value=pr.combo||0;
   ownerStaff=(currentOwner.staff||[]).map(s=>({id:s.id,name:s.name,phone:s.phone||'',offDays:(s.offDays||[]).slice(),breaks:(s.breaks||[]).map(b=>({...b})),sac:{dur:(s.sac||{}).dur||30},sakal:{dur:(s.sakal||{}).dur||15}}));
   if(!ownerStaff.length)ownerStaff=[blankStaff()];
-  renderStaffList('sStaff',ownerStaff);$('sPw').value='';$('sMsg').classList.add('hidden');}
+  renderStaffList('sStaff',ownerStaff);$('sPw').value='';$('sGoogle').value=currentOwner.googleReview||'';$('sMsg').classList.add('hidden');}
 function cleanStaff(arr){return arr.map(s=>({id:s.id,name:(s.name||'').trim(),phone:normPhone(s.phone),offDays:s.offDays||[],breaks:(s.breaks||[]).filter(b=>b.start&&b.end&&toMin(b.start)<toMin(b.end)),sac:{dur:Number((s.sac||{}).dur)||0},sakal:{dur:Number((s.sakal||{}).dur)||0}})).filter(s=>s.name);}
-function validStaff(arr,er){if(!arr.length)return er('En az bir çalışan ekleyin.'),false;for(const s of arr){if(!/^0\d{10}$/.test(s.phone))return er(s.name+' için geçerli WhatsApp girin.'),false;}return true;}
+function validStaff(arr,er){if(!arr.length)return er('En az bir çalışan ekleyin.'),false;for(const s of arr){if(!/^0\d{10}$/.test(s.phone))return er(s.name+' için geçerli telefon girin.'),false;}return true;}
 $('sSave').onclick=async()=>{const open=$('sOpen').value,close=$('sClose').value;const er=(m)=>flash('sMsg',m,false);if(toMin(open)>=toMin(close))return er('Açılış kapanıştan önce olmalı.');
   const pw=$('sPw').value.trim();if(pw&&pw.length<3)return er('Şifre en az 3 karakter.');
   const staff=cleanStaff(ownerStaff);if(!validStaff(staff,er))return;
   const prices={sac:Number($('sPriceSac').value)||0,sakal:Number($('sPriceSakal').value)||0,combo:Number($('sPriceCombo').value)||0};
-  const body={name:$('sName').value.trim()||currentOwner.name,open,close,staff,prices};if(pw)body.password=pw;
+  const body={name:$('sName').value.trim()||currentOwner.name,open,close,staff,prices,googleReview:$('sGoogle').value.trim()};if(pw)body.password=pw;
   try{await api('/api/owner/shop',{method:'PUT',auth:'owner',body});currentOwner=await api('/api/owner/shop',{auth:'owner'});flash('sMsg','Kaydedildi.',true);}catch(e){flash('sMsg',e.message,false);}};
 
 /* qr & link */
@@ -1085,7 +1135,7 @@ function plRenderShopList(){const q=(($('plSearch')&&$('plSearch').value)||'').t
   $('plShops').querySelectorAll('[data-mng]').forEach(b=>b.onclick=async()=>{try{const r=await api('/api/platform/shops/'+b.dataset.mng+'/token',{method:'POST',auth:'plat'});ownerToken=r.token;localStorage.setItem('ss_owner',ownerToken);currentOwner=null;location.hash='#panel';}catch(e){alert(e.message);}});
   $('plShops').querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>ask('Bu dükkân ve randevuları silinsin mi?',async()=>{try{await api('/api/platform/shops/'+b.dataset.del,{method:'DELETE',auth:'plat'});loadAdmin();}catch(e){alert(e.message);}}));
   $('plShops').querySelectorAll('[data-cpn]').forEach(b=>b.onclick=async()=>{const off=b.dataset.off!=='1';try{await api('/api/platform/shops/'+b.dataset.cpn+'/coupon',{method:'PUT',auth:'plat',body:{off}});const sh=plAllShops.find(x=>x.id===b.dataset.cpn);if(sh)sh.couponOff=off;plRenderShopList();}catch(e){alert(e.message);}});}
-async function loadAdmin(){try{const o=await api('/api/platform/overview',{auth:'plat'});const c=await api('/api/config');plPackages=(c.packages||[]).map(p=>({months:p.months,price:p.price}));plRenderPkgs();
+async function loadAdmin(){try{const o=await api('/api/platform/overview',{auth:'plat'});const c=await api('/api/config');plPackages=(c.packages||[]).map(p=>({months:p.months,price:p.price}));plRenderPkgs();if($('plPwWarn'))$('plPwWarn').classList.toggle('hidden',!o.pwWarn);if($('plVideo')){$('plVideo').value=c.promoVideo||'';$('plVideoDesc').value=c.promoDesc||'';}
   plCredits=(c.creditPackages||[]).map(p=>({count:p.count,price:p.price}));plRenderCredits();$('plHairPrice').value=c.hairPrice||0;
   try{const hm=await api('/api/platform/hair-models',{auth:'plat'});plHair=(hm.models||[]).map(m=>({id:m.id,name:m.name,prompt:m.prompt}));}catch(e){plHair=[];}plRenderHair();
   try{const rf=await api('/api/platform/referrers',{auth:'plat'});plRefs=(rf.referrers||[]).map(r=>({id:r.id,name:r.name,phone:r.phone,code:r.code,discounts:r.discounts||{},payouts:r.payouts||{},iban:r.iban||'',pending:r.pending||0,count:r.count,status:r.status,city:r.city,district:r.district}));}catch(e){plRefs=[];}plRenderRefs();
@@ -1149,10 +1199,12 @@ function plRenderApps(){if($('plAppDot'))$('plAppDot').innerHTML=plApps.length>0
   $('plApps').querySelectorAll('.plAppRep').forEach(b=>b.onclick=()=>{const inp=$('plApps').querySelector('.plAppNote[data-id="'+b.dataset.id+'"]');plReply(b.dataset.id,inp?inp.value.trim():'');});}
 async function plReply(id,note){if(!note)return alert('Önce bir not yaz.');try{await api('/api/platform/applications/'+id+'/reply',{method:'POST',auth:'plat',body:{reply:note}});const ap=await api('/api/platform/applications',{auth:'plat'});plApps=ap.applications||[];plRenderApps();alert('Not konuşmacıya iletildi.');}catch(e){alert(e.message);}}
 async function plDecide(id,act){try{await api('/api/platform/applications/'+id+'/'+act,{method:'POST',auth:'plat'});const ap=await api('/api/platform/applications',{auth:'plat'});plApps=ap.applications||[];plRenderApps();const rf=await api('/api/platform/referrers',{auth:'plat'});plRefs=(rf.referrers||[]).map(r=>({id:r.id,name:r.name,phone:r.phone,code:r.code,discounts:r.discounts||{},payouts:r.payouts||{},iban:r.iban||'',pending:r.pending||0,count:r.count,status:r.status,city:r.city,district:r.district}));plRenderRefs();}catch(e){alert(e.message);}}
-const STYLES_LIST=[{id:'tropical',n:'Tropikal',sw:['#14b8a6','#f59e0b']},{id:'ocean',n:'Okyanus',sw:['#0284c7','#06b6d4']},{id:'sade',n:'Sade',sw:['#18181b','#5fce8a']},{id:'retro',n:'Retro',sw:['#ff6b35','#004e64']},{id:'asil',n:'Asil',sw:['#1a2a4f','#c9a24b']},{id:'bulut',n:'Bulut',sw:['#4dabf7','#e7f5ff']}];
+const STYLES_LIST=[{id:'tropical',n:'Tropikal',sw:['#14b8a6','#f59e0b']},{id:'ocean',n:'Okyanus',sw:['#0284c7','#06b6d4']},{id:'sade',n:'Sade',sw:['#18181b','#5fce8a']},{id:'retro',n:'Retro',sw:['#ff6b35','#004e64']},{id:'asil',n:'Asil',sw:['#1a2a4f','#c9a24b']},{id:'bulut',n:'Usta 💈',sw:['#123328','#c9a24b']}];
 let plSelStyle='tropical';
 function plRenderStyles(){$('plStyles').innerHTML=STYLES_LIST.map(t=>'<button class="stcard'+(t.id===plSelStyle?' sel':'')+'" data-s="'+t.id+'"><span class="thsw"><i style="background:'+t.sw[0]+'"></i><i style="background:'+t.sw[1]+'"></i></span>'+t.n+'</button>').join('');
   $('plStyles').querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{plSelStyle=b.dataset.s;applyStyle(plSelStyle);plRenderStyles();});}
+$('plSaveVideo').onclick=async()=>{try{await api('/api/platform/video',{method:'PUT',auth:'plat',body:{url:$('plVideo').value.trim(),desc:$('plVideoDesc').value.trim()}});flash('plVideoMsg','Video kaydedildi. Dükkan aç ekranında görünecek.',true);}catch(e){flash('plVideoMsg',e.message,false);}};
+$('plExport').onclick=async()=>{const b=$('plExport');b.disabled=true;const t=b.textContent;b.textContent='Hazırlanıyor...';try{const d=await api('/api/platform/export',{auth:'plat'});const bl=new Blob([JSON.stringify(d,null,1)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download='berber-defteri-yedek-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href);},4000);}catch(e){alert('Yedek alınamadı: '+e.message);}b.disabled=false;b.textContent=t;};
 $('plSaveStyle').onclick=async()=>{try{const r=await api('/api/platform/style',{method:'PUT',auth:'plat',body:{style:plSelStyle}});applyStyle(r.style);plRenderStyles();flash('plStyleMsg','Stil kaydedildi ve her ekrana uygulandı.',true);}catch(e){flash('plStyleMsg',e.message,false);}};
 $('plSavePw').onclick=async()=>{const v=$('plNewPw').value.trim();if(v.length<3)return flash('plPwMsg','Şifre en az 3 karakter.',false);try{await api('/api/platform/password',{method:'PUT',auth:'plat',body:{password:v}});$('plNewPw').value='';flash('plPwMsg','Değişti.',true);}catch(e){flash('plPwMsg',e.message,false);}};
 
@@ -1213,10 +1265,9 @@ $('cSubmit').onclick=async()=>{const name=$('cName').value.trim();const er=(m)=>
   try{await api('/api/shops/'+currentShop.id+'/appointments',{method:'POST',body:{name,date:cDate,time:cTime,kvkk:true,staff:cStaff||undefined,services:cServices,deviceId}});
     const st=curStaff();const t=orderTotals();const who=(currentShop.staff||[]).length>1?(st.name||''):'';
     const dd=relDay(cDate),endT=endTime(cTime,t.dur);
-    const msg='Yeni randevu%0A'+encodeURIComponent(name)+'%0A'+encodeURIComponent(svcLabel()+' ('+fmtTL(t.price)+')')+'%0A'+encodeURIComponent(dd+' '+cTime+' - '+endT);
-    const bp=normPhone(st.phone||'');
-    if(/^0\d{10}$/.test(bp)){location.href='https://wa.me/9'+bp+'?text='+msg;return;}
-    $('successTitle').textContent='Randevun Alındı';$('successText').textContent=currentShop.name+' · '+svcLabel()+' · '+cDate+' '+cTime;$('successBtn').textContent='Tamam';$('successBtn').onclick=()=>{modal('successModal',false);openCustomer(currentShop.id);};modal('successModal',true);
+    $('successTitle').textContent='Randevun Alındı';$('successText').textContent=currentShop.name+' · '+svcLabel()+' · '+cDate+' '+cTime;
+    if(currentShop.googleReview){$('successText').textContent+=' — Memnun kaldıysan Google\'da bir değerlendirme çok kıymetli 🌟';$('successBtn').textContent='⭐ Google\'da Değerlendir';$('successBtn').onclick=function(){location.href=currentShop.googleReview;};modal('successModal',true);setTimeout(function(){if(currentShop&&currentShop.googleReview)location.href=currentShop.googleReview;},2200);}
+    else{$('successBtn').textContent='Tamam';$('successBtn').onclick=()=>{modal('successModal',false);openCustomer(currentShop.id);};modal('successModal',true);}
   }catch(e){er(e.message);}
   $('cSubmit').disabled=false;$('cSubmit').innerHTML='<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 0 1 12 4z"/></svg> Randevuyu Tamamla';
 };
@@ -1244,10 +1295,13 @@ function _shade(hex,p){const n=parseInt(hex.slice(1),16),r=(n>>16)&255,g=(n>>8)&
 function applyTheme(accent,brand){if(!accent||!brand)return;const st=document.documentElement.style;st.setProperty('--green',accent);st.setProperty('--green2',_shade(accent,-0.18));st.setProperty('--blue',accent);st.setProperty('--icbg',_shade(accent,0.86));st.setProperty('--navy',brand);st.setProperty('--navy2',_shade(brand,-0.25));st.setProperty('--navyLite',_shade(brand,0.22));st.setProperty('--ink',brand);}
 async function initTheme(){try{const c=await api('/api/config');if(c.theme)applyTheme(c.theme.accent,c.theme.brand);}catch(e){}}
 var STYLE_IDS=['tropical','ocean','sade','retro','asil','bulut'];
+function ytId(u){u=String(u||'');let m=u.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|v\/|shorts\/)|youtu\.be\/|youtube-nocookie\.com\/embed\/)([\w-]{11})/);if(m)return m[1];m=u.match(/^[\w-]{11}$/);return m?m[0]:'';}
+function showPromo(url,desc){const box=$('oPromo');if(!box)return;const id=ytId(url);if(!id){box.classList.add('hidden');return;}$('oPromoFrame').src='https://www.youtube-nocookie.com/embed/'+id+'?rel=0&modestbranding=1';$('oPromoLink').href='https://youtu.be/'+id;$('oPromoDesc').textContent=desc||'';box.classList.remove('hidden');}
 function applyStyle(id){if(STYLE_IDS.indexOf(id)<0)id='tropical';STYLE_IDS.forEach(function(x){document.body.classList.remove('st-'+x);});document.body.classList.add('st-'+id);}
 async function initStyle(){try{const c=await api('/api/config');if(c.style)applyStyle(c.style);}catch(e){}}
 initStyle();
 window.addEventListener('hashchange',route);route();
+if('serviceWorker' in navigator&&location.protocol==='https:'){navigator.serviceWorker.register('/sw.js').catch(function(){});}
 </script>
 </body>
 </html>
