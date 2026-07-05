@@ -164,7 +164,8 @@ module.exports = async (req, res) => {
     const url = req.url || '';
     const pathName = url.split('?')[0].replace(/\/+$/, '');
     const q = Object.fromEntries(new URLSearchParams(url.split('?')[1] || ''));
-    const p = pathName.split('/').filter(Boolean).slice(1);
+    let p = pathName.split('/').filter(Boolean);
+    if (p[0] === 'api') p = p.slice(1);
     const m = req.method;
     const P = body(req);
 
