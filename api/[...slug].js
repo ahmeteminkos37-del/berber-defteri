@@ -519,6 +519,7 @@ async function createShop(res, P) {
   const secQ = String(P.secQ || '').trim().slice(0, 100); const secA = String(P.secA || '').trim().toLowerCase().slice(0, 100);
   if (!secQ || secA.length < 2) return send(res, 400, { error: 'Güvenlik sorusu ve cevabını girin.', field: 'sec' });
   let ref_code = '';
+  const id = genId();
   const { error } = await supabase.from('shops').insert({ id, name, username, pw: hashPw(pw), open: P.open, close: P.close, step: GRAN, staff, prices: sanitizePrices(P.prices), closed_days: [], credits: HAIR_GIFT, ref_code, city, district, plan: 'active', expires_at: new Date(Date.now() - 1000).toISOString(), status: 'active', google_review: String(P.googleReview || '').trim().slice(0, 300), sec_q: secQ, sec_a: hashPw(secA) });
   if (error) return send(res, 500, { error: 'Dükkân oluşturulamadı.' });
   if (PAYMENT === 'shopier') return send(res, 200, { payUrl: '/api/pay/' + id });
